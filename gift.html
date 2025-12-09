@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hadiah untuk Sasa</title>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffe6f2, #e3f2ff);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        align-items: center;
+    }
+
+    .gift-container {
+        width: 90%;
+        max-width: 500px;
+        background: #ffffffdd;
+        border-radius: 25px;
+        padding: 30px;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        backdrop-filter: blur(6px);
+        animation: fadeIn 1s ease;
+        position: relative;
+    }
+
+    /* Ribbon / pita */
+    .ribbon {
+        width: 160px;
+        height: 40px;
+        background: #ff4da6;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(255,0,100,0.3);
+    }
+
+    /* Text */
+    .title {
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .desc {
+        text-align: center;
+        font-size: 15px;
+        color: #555;
+        margin-bottom: 25px;
+    }
+
+    /* Gift input */
+    .gift-input {
+        width: 100%;
+        padding: 13px;
+        border-radius: 12px;
+        border: 2px solid #ff99c2;
+        font-size: 14px;
+        outline: none;
+        box-sizing: border-box;
+        transition: .3s;
+    }
+
+    .gift-input:focus {
+        border-color: #ff4da6;
+        box-shadow: 0 0 8px #ffb3da;
+    }
+
+    /* Button */
+    .send-btn {
+        width: 100%;
+        padding: 14px;
+        background: #ff4da6;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 12px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: .3s;
+        box-shadow: 0 8px 20px rgba(255,0,120,0.3);
+    }
+
+    .send-btn:hover {
+        background: #e60073;
+        transform: scale(1.03);
+    }
+
+    /* Decorative floating icons */
+    .floating-icon {
+        position: absolute;
+        animation: float 4s ease-in-out infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0);}
+        50% { transform: translateY(-15px);}
+        100% { transform: translateY(0);}
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Floating Decorations -->
+<img src="https://cdn-icons-png.flaticon.com/512/742/742751.png" width="50" class="floating-icon" style="top:20px; left:20px;">
+<img src="https://cdn-icons-png.flaticon.com/512/3468/3468086.png" width="55" class="floating-icon" style="bottom:30px; right:25px;">
+<img src="https://cdn-icons-png.flaticon.com/512/969/969649.png" width="40" class="floating-icon" style="top:50%; left:-10px;">
+
+<div class="gift-container">
+
+    <div class="ribbon">🎁 Special Gift</div>
+
+    <div class="title">Hadiah untuk Kamu, Sa</div>
+
+    <p class="desc">
+        Tulis hadiah apa yang sasaa inginkan.  
+        Nanti akan langsung terkirim ke aku.
+    </p>
+
+    <input type="text" id="giftText" class="gift-input"
+           placeholder="Contoh: Boneka Pinguin, Makanan, Jalan-jalan..." />
+
+    <button class="send-btn" onclick="sendWhatsApp()">Kirim ke Aku</button>
+</div>
+
+<script>
+    function sendWhatsApp() {
+        const text = document.getElementById("giftText").value;
+        const phone = "6289512929676"; // ← GANTI DENGAN NOMOR WHATSAPP SASAA
+
+        if (!text) {
+            alert("Isi dulu ya hadiahnya 😘");
+            return;
+        }
+
+        const url = `https://wa.me/${phone}?text=Sa mau hadiah: ${encodeURIComponent(text)}`;
+        window.open(url, "_blank");
+    }
+</script>
+
+</body>
+</html>

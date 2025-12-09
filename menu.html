@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilih Surprise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="menu-page">
+
+  <!-- top decorations -->
+  <div class="bunting" aria-hidden="true">
+    <div class="flag red"></div>
+    <div class="flag yellow"></div>
+    <div class="flag green"></div>
+    <div class="flag blue"></div>
+    <div class="flag pink"></div>
+    <div class="flag purple"></div>
+  </div>
+
+  <div class="lights" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <main class="page-wrap" role="main">
+    <h1 class="page-title">Pilih Surprise Kamu 💕</h1>
+
+    <!-- carousel (swipe) -->
+    <div class="carousel-container" id="carouselContainer">
+      <div class="carousel-wrapper" id="carouselWrapper">
+
+        <a href="gallery.html" class="option-card">
+          <div class="icon-card">📸</div>
+          <h3>Foto</h3>
+        </a>
+
+        <a href="note.html" class="option-card">
+          <div class="icon-card">📝</div>
+          <h3>Ucapan</h3>
+        </a>
+
+        <a href="gift.html" class="option-card">
+          <div class="icon-card">🎁</div>
+          <h3>Hadiah?</h3>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- dots indicator -->
+    <div class="carousel-dots" id="carouselDots" aria-label="indikator">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </main>
+
+  <!-- falling petals layer -->
+  <div class="petal-container" aria-hidden="true" id="petalContainer"></div>
+
+  <script src="carousel.js"></script>
+</body>
+</html>

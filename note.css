@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    background: #fff3fa;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Judul */
+.title {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 26px;
+    color: #d24ea6;
+    font-weight: 700;
+}
+
+/* Container scrapbook */
+.scrapbook {
+    width: 92%;
+    max-width: 650px;
+    margin: 30px auto;
+    position: relative;
+}
+
+/* --------------------------- */
+/*  POLAROID PHOTO DECORATION  */
+/* --------------------------- */
+.polaroid {
+    width: 150px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    position: absolute;
+}
+
+.polaroid-left {
+    top: 10px; left: -15px;
+    transform: rotate(-8deg);
+}
+.polaroid-right {
+    bottom: 10px; right: -15px;
+    transform: rotate(7deg);
+}
+
+/* Dummy photo area - user can replace with image */
+.polaroid-img, .polaroid-img2 {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+}
+
+/* Kamu bisa ganti fotonya nanti */
+.polaroid-img {
+    background-image: url('img/sasa1.jpg');
+}
+.polaroid-img2 {
+    background-image: url('img/sasa5.jpg');
+}
+
+.caption {
+    text-align: center;
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #c93ea9;
+    font-family: "Comic Sans MS", cursive;
+}
+
+
+/* --------------------------- */
+/*         STICKY NOTES       */
+/* --------------------------- */
+
+.sticky-note {
+    background: #ffe3f3;
+    padding: 18px;
+    width: 160px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    position: absolute;
+    font-family: "Comic Sans MS", cursive;
+    color: #c13a9c;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.sticky-tilt-left {
+    top: 140px;
+    left: -10px;
+    transform: rotate(-6deg);
+}
+
+.sticky-tilt-right {
+    bottom: 120px;
+    right: -10px;
+    transform: rotate(5deg);
+}
+
+
+/* --------------------------- */
+/*         MAIN NOTE PAPER    */
+/* --------------------------- */
+.note-paper {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 12px;
+    position: relative;
+    border: 1px solid #ffd2ec;
+    margin: 60px auto;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+.note-paper h3 {
+    font-family: "Comic Sans MS", cursive;
+    color: #c93ea9;
+    margin-top: 0;
+}
+
+.note-paper p {
+    color: #444;
+    line-height: 1.7;
+}
+
+.doodles {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+/* --------------------------- */
+/*      FALLING PETALS 💗      */
+/* --------------------------- */
+.falling-petals::before {
+    content: "🌸 🌸 🌸 🌸 🌸 🌸";
+    font-size: 22px;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    animation: fall 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10%); opacity: 1; }
+    100% { transform: translateY(120%); opacity: 0; }
+}
+
+
+/* Back button */
+.btn-back {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 18px;
+    color: #d24ea6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+
+    .polaroid-left,
+    .polaroid-right,
+    .sticky-tilt-left,
+    .sticky-tilt-right {
+        transform: scale(0.85);
+    }
+
+    .note-paper {
+        padding: 22px;
+    }
+}
