@@ -8,23 +8,42 @@
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
 </head>
 
-<body class="rain-page">
+<body class="romantic-scene">
 
-<div class="rain"></div>
+<div class="petals"></div>
 
-<div class="city-lights"></div>
+<div class="envelope-container">
 
-<div class="letter-container">
+<div class="envelope" onclick="openLetter()">
+<div class="flap"></div>
+<div class="body"></div>
+</div>
 
-<h2 class="letter-title">Sasa...</h2>
+<div class="letter" id="letter">
 
-<p id="letter-text"></p>
+<h2>Sasa...</h2>
+
+<p id="text"></p>
+
+<div class="signature" id="signature">— dari aku</div>
+
+<div class="memory-photo" id="memory">
+<img src="img/sasa11.jpeg">
+</div>
 
 <a href="menu.html" class="back-btn">← kembali</a>
 
 </div>
+
+</div>
+
+<audio id="music" loop>
+<source src="piano.mp3" type="audio/mpeg">
+</audio>
 
 <script src="script.js"></script>
 

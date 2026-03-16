@@ -1,51 +1,60 @@
-const message = `Aku tahu mungkin sekarang semuanya sudah terasa berbeda.
+const message = `Aku tau mungkin sekarang semuanya sudah terasa berbeda.
 
 Mungkin kita sudah tidak sedekat dulu.
-Mungkin sekarang terasa seperti dua orang yang pernah saling mengenal saja.
-
-Aku tidak tahu apakah halaman ini akan kamu lihat sampai selesai.
-
-Tapi aku tetap ingin mengatakan sesuatu yang mungkin
-seharusnya sudah aku katakan dari dulu.
-
-Maaf.
-
-Maaf kalau selama ini ada sikapku
-yang tanpa sadar menyakitimu,
-membuatmu kecewa,
-atau membuat keadaan menjadi tidak seperti yang seharusnya.
 
 Aku tidak menulis ini untuk memaksamu kembali.
 
-Aku hanya ingin kamu tahu
-bahwa semua kenangan yang pernah ada
-tetap berarti buat aku.
+Aku hanya ingin mengatakan sesuatu
+yang mungkin seharusnya sudah aku katakan sejak lama.
 
-Dan jika pada akhirnya kita memang hanya
-menjadi bagian dari cerita masa lalu masing-masing,
+Maaf Sa.
 
-aku tetap berharap kamu selalu bahagia
-di jalanmu yang sekarang.
+Maaf kalo selama ini ada sikapku
+yang tanpa sadar menyakitimu
+atau membuatmu kecewa.
 
-Terima kasih untuk semua yang pernah ada.
+Terima kasih, terima kasih
+untuk semua waktu,
+cerita,
+dan kenangan yang pernah ada.
 
-— dari seseorang yang pernah peduli.`
+Aku tetap berharap
+kamu selalu baik-baik saja
+dan menemukan kebahagiaanmu sendiri.
+
+jaga kesehatannya ya, Have a peaceful day, Sasaa!`
 
 let i = 0
-const speed = 30
+const speed = 60
+
+function openLetter(){
+
+document.querySelector(".envelope").classList.add("open")
+
+document.getElementById("letter").style.display="block"
+
+document.getElementById("music").play()
+
+typeWriter()
+
+}
 
 function typeWriter(){
 
 if(i < message.length){
 
-document.getElementById("letter-text").innerHTML += message.charAt(i)
+document.getElementById("text").innerHTML += message.charAt(i)
 
 i++
 
 setTimeout(typeWriter, speed)
 
-}
+}else{
+
+document.getElementById("signature").style.opacity = 1
+
+document.getElementById("memory").style.opacity = 1
 
 }
 
-window.onload = typeWriter
+}

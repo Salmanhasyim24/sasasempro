@@ -392,141 +392,188 @@
     }
 }
 
-  /* =========================
-RAIN SCENE
-========================= */
-
-.rain-page{
-  height:100vh;
-  background:#0f172a;
-  overflow:hidden;
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  }
+  
+  /* romantic background */
+  
+  .romantic-scene{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffe4ec,#e6f0ff);
   display:flex;
   justify-content:center;
-  align-items:center;
-  font-family:'Poppins',sans-serif;
-  color:white;
-  position:relative;
+  align-items:flex-start;
+  padding:80px 20px;
+  overflow-y:auto;
   }
   
-  /* Rain animation */
+  /* falling petals */
   
-  .rain{
-  position:absolute;
+  .petals{
+  position:fixed;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
-  background-image:linear-gradient(transparent,rgba(255,255,255,0.3));
-  background-size:2px 100px;
-  animation:rain 0.5s linear infinite;
-  opacity:0.2;
-  }
-  
-  @keyframes rain{
-  0%{background-position:0 0}
-  100%{background-position:-50px 100px}
-  }
-  
-  /* City blur lights */
-  
-  .city-lights{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:200px;
-  background:radial-gradient(circle,#facc15 5%,transparent 40%),
-  radial-gradient(circle,#fb7185 5%,transparent 40%),
-  radial-gradient(circle,#60a5fa 5%,transparent 40%);
-  background-size:200px 200px;
-  filter:blur(60px);
+  pointer-events:none;
+  background-image:
+  radial-gradient(circle,#ff7aa2 3px,transparent 4px),
+  radial-gradient(circle,#ffb3c7 3px,transparent 4px),
+  radial-gradient(circle,#ffc9d9 3px,transparent 4px);
+  background-size:120px 120px;
+  animation:petalFall 20s linear infinite;
   opacity:0.4;
   }
   
-  /* Letter */
+  @keyframes petalFall{
+  from{background-position:0 0}
+  to{background-position:0 1000px}
+  }
   
-  .letter-container{
+  /* envelope */
+  
+  .envelope-container{
+  text-align:center;
+  max-width:700px;
+  width:100%;
+  }
+  
+  .envelope{
+  width:200px;
+  height:120px;
+  margin:0 auto;
   position:relative;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
+  cursor:pointer;
+  }
+  
+  .envelope .body{
+  width:100%;
+  height:100%;
+  background:#ff8fab;
+  border-radius:6px;
+  }
+  
+  .envelope .flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#ff5d8f;
+  clip-path:polygon(0 0,100% 0,50% 60%);
+  transition:0.6s;
+  }
+  
+  .envelope.open .flap{
+  transform:rotateX(180deg);
+  }
+  
+  /* letter */
+  
+  .letter{
+  margin-top:30px;
+  background:white;
   padding:40px;
   border-radius:20px;
-  max-width:600px;
-  width:90%;
-  line-height:1.8;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
-  animation:fadeUp 1.5s ease;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  display:none;
+  line-height:1.9;
+  animation:pageOpen 1s ease;
   }
   
-  /* title */
+  @keyframes pageOpen{
+  from{
+  transform:rotateX(-90deg);
+  opacity:0;
+  }
+  to{
+  transform:rotateX(0);
+  opacity:1;
+  }
+  }
   
-  .letter-title{
+  .letter h2{
   text-align:center;
+  color:#e11d48;
   margin-bottom:20px;
-  font-weight:600;
   }
   
-  /* text */
-  
-  #letter-text{
-  font-size:15px;
+  #text{
   white-space:pre-line;
+  font-size:15px;
+  color:#444;
   }
   
-  /* button */
+  /* signature */
+  
+  .signature{
+  margin-top:30px;
+  font-family:'Dancing Script',cursive;
+  font-size:30px;
+  text-align:right;
+  color:#e11d48;
+  opacity:0;
+  transition:2s;
+  }
+  
+  /* memory photo */
+  
+  .memory-photo{
+  margin-top:30px;
+  text-align:center;
+  opacity:0;
+  transition:2s;
+  }
+  
+  .memory-photo img{
+  width:200px;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  /* back button */
   
   .back-btn{
   display:block;
-  margin-top:30px;
+  margin-top:40px;
   text-align:center;
   text-decoration:none;
-  color:white;
-  opacity:0.8;
-  transition:0.3s;
+  color:#e11d48;
+  font-weight:500;
   }
   
-  .back-btn:hover{
-  opacity:1;
-  }
+  /* responsive */
   
-  /* animation */
+  @media(max-width:768px){
   
-  @keyframes fadeUp{
-  from{
-  opacity:0;
-  transform:translateY(40px);
-  }
-  to{
-  opacity:1;
-  transform:translateY(0);
-  }
-  }
-  
-  /* =========================
-  RESPONSIVE
-  ========================= */
-  
-  @media (max-width:768px){
-  
-  .letter-container{
+  .letter{
   padding:25px;
   }
   
-  #letter-text{
+  #text{
   font-size:14px;
   }
   
+  .memory-photo img{
+  width:160px;
   }
   
-  @media (max-width:480px){
+  }
   
-  .letter-container{
+  @media(max-width:480px){
+  
+  .letter{
   padding:20px;
   }
   
-  .letter-title{
-  font-size:18px;
+  #text{
+  font-size:13px;
   }
   
-  #letter-text{
-  font-size:13px;
+  .signature{
+  font-size:24px;
   }
   
   }
