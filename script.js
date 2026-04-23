@@ -25,7 +25,9 @@ may Allah always bless u, happy terus ya
 i will be ur bloom and see u at the aisle, sasa
 until our next eclipse :)
 
-jaga kesehatanmu selalu ya. have a peaceful day, sasaa.
+kalo ada apapa, tolong kasih tau aku ya, sa? aku selalu di dekatmu sasa, selalu.
+
+jaga kesehatanmu selalu ya. have a peaceful day, mi amor.
 `
 
 let i = 0
