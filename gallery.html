@@ -1,114 +1,829 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenangan Sasa</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kenangan Sasa — Photobox</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top left,#ffd9eb,#fff5fa 40%),
+    radial-gradient(circle at bottom right,#e0e7ff,#fff7fb 55%);
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#444;
+    padding-bottom:120px;
+}
+
+/* =========================================
+   FLOATING EFFECT
+========================================= */
+
+.float-heart{
+    position:fixed;
+    pointer-events:none;
+    animation:floatUp linear infinite;
+    z-index:1;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+    }
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.gallery-title{
+    text-align:center;
+    padding-top:70px;
+    margin-bottom:50px;
+    font-size:clamp(40px,6vw,65px);
+    font-family:'Caveat',cursive;
+    color:#ff5b9f;
+}
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.photobox-wrapper{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:35px;
+    padding:20px;
+}
+
+.photo-strip{
+    width:290px;
+    background:white;
+    border-radius:26px;
+    padding:18px;
+    box-shadow:
+    0 10px 30px rgba(255,105,180,.18);
+}
+
+.frame{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    margin-bottom:14px;
+    border:2px dashed #ffc9df;
+    background:#fff8fb;
+}
+
+.frame img{
+    width:100%;
+    height:260px;
+    object-fit:contain;
+    display:block;
+    background:white;
+}
+
+.photo-check{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:22px;
+    height:22px;
+    accent-color:#ff5b9f;
+    cursor:pointer;
+    z-index:10;
+}
+
+.caption{
+    text-align:center;
+    color:#ff5b9f;
+    font-family:'Caveat',cursive;
+    font-size:28px;
+}
+
+.date{
+    text-align:center;
+    color:#999;
+    font-size:13px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.controls{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:999;
+}
+
+.action-btn{
+    border:none;
+    background:#ff5b9f;
+    color:white;
+    padding:14px 20px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 8px 20px rgba(255,105,180,.25);
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================================
+   PRINT AREA
+========================================= */
+
+.print-wrapper{
+    display:none;
+}
+
+/* =========================================
+   PRINT STYLE
+========================================= */
+
+@media print{
+
+@page{
+    size:4in 6in;
+    margin:0;
+}
+
+body{
+    background:white !important;
+}
+
+body > *{
+    display:none !important;
+}
+
+.print-wrapper,
+.print-wrapper *{
+    display:block !important;
+    visibility:visible !important;
+}
+
+.print-wrapper{
+    display:block !important;
+    width:4in;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.print-page{
+    width:4in;
+    height:6in;
+
+    display:flex !important;
+    justify-content:center;
+    align-items:flex-start;
+
+    gap:8px;
+
+    padding:8px;
+
+    overflow:hidden;
+    background:white;
+
+    page-break-after:always;
+}
+
+/* =========================================
+   STRIP LAYOUT
+========================================= */
+
+.print-page.single-strip .print-strip{
+    width:92%;
+}
+
+.print-page.double-strip .print-strip{
+    width:48%;
+}
+
+/* =========================================
+   STRIP
+========================================= */
+
+.print-strip{
+
+height:100%;
+
+background:
+linear-gradient(
+    to bottom,
+    #ffe5f1,
+    #fff8fc
+);
+
+border:3px solid #ffd0e5;
+
+border-radius:24px;
+
+padding:8px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+}
+
+/* grain */
+
+.print-strip::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.08;
+    pointer-events:none;
+    background-image:
+    radial-gradient(#000 0.5px, transparent 0.5px);
+    background-size:4px 4px;
+}
+
+/* =========================================
+   PHOTO
+========================================= */
+
+.print-photo{
+    position:relative;
+
+    width:100%;
+
+    height:28%;
+
+    margin:4px 0;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:white;
+
+    border:2px solid #ffd9eb;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex:none;
+}
+
+.print-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+
+    border-radius:10px;
+
+    background:white;
+}
+
+/* =========================================
+   DECORATIONS
+========================================= */
+
+.deco{
+    position:absolute;
+    z-index:5;
+    font-size:16px;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,.15));
+}
+
+.love{
+    top:-3px;
+    left:-2px;
+    transform:rotate(-15deg);
+}
+
+.star{
+    top:4px;
+    right:6px;
+}
+
+.flower{
+    bottom:-2px;
+    left:4px;
+}
+
+.ribbon{
+    bottom:-5px;
+    right:-1px;
+    transform:rotate(10deg);
+}
+
+/* =========================================
+   INFO
+========================================= */
+
+.print-header{
+    text-align:center;
+    margin-bottom:6px;
+}
+
+.print-logo{
+    font-size:16px;
+    font-weight:700;
+    color:#ff5b9f;
+}
+
+.print-time{
+    font-size:10px;
+    color:#777;
+}
+
+.print-caption{
+    text-align:center;
+    font-family:'Caveat',cursive;
+    color:#ff5b9f;
+    font-size:18px;
+    margin-top:6px;
+}
+
+.print-footer{
+    text-align:center;
+    margin-top:6px;
+    font-size:10px;
+    color:#888;
+}
+
+.barcode{
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.qr{
+    font-size:20px;
+    margin-top:2px;
+}
+
+}
+
+</style>
 </head>
 
-<body class="gallery-page">
+<body>
 
-    <!-- Bendera dekorasi -->
-    <div class="bunting">
-        <div class="flag red"></div>
-        <div class="flag yellow"></div>
-        <div class="flag green"></div>
-        <div class="flag blue"></div>
-        <div class="flag pink"></div>
-        <div class="flag purple"></div>
-    </div>
+<h1 class="gallery-title">
+    📸 Kenangan Sasa
+</h1>
 
-    <!-- Lampu -->
-    <div class="lights">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
+<!-- =========================================
+     GALLERY
+========================================= -->
 
-    <h1 class="gallery-title">📸 Kenangan Sasaaa</h1>
+<div class="photobox-wrapper">
 
-    <div class="gallery-container">
+    <!-- PHOTO STRIP -->
+    <div class="photo-strip">
 
-        <div class="photo-card rotate-left">
-            <!-- <h3>Moment Spesial 💗</h3> -->
-            <img src="img/sasa1.jpg" alt="">
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa1.jpg">
         </div>
 
-        <div class="photo-card rotate-small-right">
-            <!-- <h3>Senang Bareng Kamu ✨</h3> -->
-            <img src="img/sasa2.jpg" alt="">
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa2.jpg">
         </div>
 
-        <div class="photo-card rotate-small-left">
-            <!-- <h3>Foto Favorit 😍</h3> -->
-            <img src="img/sasa3.jpg" alt="">
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa3.jpg">
+        </div>
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa4.jpg">
         </div>
 
-        <div class="photo-card rotate-right">
-            <!-- <h3>Kenangan Manis 💕</h3> -->
-            <img src="img/sasa4.jpg" alt="">
-        </div>
-        <div class="photo-card rotate-small-right">
-            <!-- <h3>Senang Bareng Kamu ✨</h3> -->
-            <img src="img/sasa5.jpg" alt="">
-        </div>
-
-        <div class="photo-card rotate-small-left">
-            <!-- <h3>Foto Favorit 😍</h3> -->
-            <img src="img/sasa6.jpg" alt="">
-        </div>
-
-        <div class="photo-card rotate-right">
-            <!-- <h3>Kenangan Manis 💕</h3> -->
-            <img src="img/sasa7.jpg" alt="">
-        </div>
-        <div class="photo-card rotate-left">
-            <!-- <h3>Moment Spesial 💗</h3> -->
-            <img src="img/sasa8.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-small-right">
-            <!-- <h3>Senang Bareng Kamu ✨</h3> -->
-            <img src="img/sasa9.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-small-left">
-            <!-- <h3>Foto Favorit 😍</h3> -->
-            <img src="img/sasa10.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-right">
-            <!-- <h3>Kenangan Manis 💕</h3> -->
-            <img src="img/sasa11.jpeg" alt="">
-        </div>
-        <div class="photo-card rotate-small-right">
-            <!-- <h3>Senang Bareng Kamu ✨</h3> -->
-            <img src="img/sasa12.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-small-left">
-            <!-- <h3>Foto Favorit 😍</h3> -->
-            <img src="img/sasa13.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-right">
-            <!-- <h3>Kenangan Manis 💕</h3> -->
-            <img src="img/sasa14.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-left">
-            <!-- <h3>Moment Spesial 💗</h3> -->
-            <img src="img/sasa15.jpeg" alt="">
-        </div>
-
-        <div class="photo-card rotate-small-right">
-            <!-- <h3>Senang Bareng Kamu ✨</h3> -->
-            <img src="img/sasa16.jpeg" alt="">
-        </div>
-
+        <div class="caption">Sasa 💗</div>
+        <div class="date">Forever Saved</div>
 
     </div>
 
-    <a href="menu.html" class="btn-back">← Kembali</a>
+    <!-- PHOTO STRIP -->
+    <div class="photo-strip">
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa5.jpg">
+        </div>
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa6.jpg">
+        </div>
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa7.jpg">
+        </div>
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa8.jpeg">
+        </div>
+
+        <div class="caption">Sasa 🌸</div>
+        <div class="date">Sweet Memories</div>
+
+    </div>
+    <!-- PHOTO STRIP -->
+    <div class="photo-strip">
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa9.jpeg">
+        </div>
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa10.jpeg">
+        </div>
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa11.jpeg">
+        </div>
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa12.jpeg">
+        </div>
+
+        <div class="caption">Sasa 🎀</div>
+        <div class="date">Lovely Day</div>
+
+    </div>
+
+    <!-- PHOTO STRIP -->
+    <div class="photo-strip">
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa13.jpeg">
+        </div>
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa14.jpeg">
+        </div>
+
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa15.jpeg">
+        </div>
+        
+        <div class="frame">
+            <input type="checkbox" class="photo-check">
+            <img src="img/sasa16.jpeg">
+        </div>
+
+        <div class="caption">Sasa ✨</div>
+        <div class="date">Cute Moment</div>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+     BUTTON
+========================================= -->
+
+<div class="controls">
+
+    <!-- PRINT SELECTED -->
+
+    <button
+    class="action-btn"
+    onclick="printSelectedPhotos()">
+
+        ✨ Print Pilihan
+
+    </button>
+
+    <!-- PRINT ALL -->
+
+    <button
+    class="action-btn"
+    onclick="printAllPhotos()">
+
+        🖨 Print Semua
+
+    </button>
+
+</div>
+
+<!-- =========================================
+     PRINT WRAPPER
+========================================= -->
+
+<div class="print-wrapper"></div>
+
+<script>
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+for(let i=0;i<30;i++){
+
+    const heart =
+    document.createElement("div");
+
+    heart.classList.add("float-heart");
+
+    const emojis =
+    ["💗","✨","🌸","🎀","💖"];
+
+    heart.innerHTML =
+    emojis[Math.floor(Math.random()*emojis.length)];
+
+    heart.style.left =
+    Math.random()*100+"vw";
+
+    heart.style.fontSize =
+    (14 + Math.random()*20)+"px";
+
+    heart.style.animationDuration =
+    (8 + Math.random()*8)+"s";
+
+    document.body.appendChild(heart);
+}
+
+/* =========================================
+   PRINT ALL PHOTOS
+========================================= */
+
+function printAllPhotos(){
+
+/* ambil semua checkbox */
+
+const allChecks =
+document.querySelectorAll('.photo-check');
+
+/* checklist semua */
+
+allChecks.forEach(check=>{
+
+    check.checked = true;
+
+});
+
+/* gunakan function print pilihan */
+
+printSelectedPhotos();
+
+/* reset checkbox */
+
+setTimeout(()=>{
+
+    allChecks.forEach(check=>{
+
+        check.checked = false;
+
+    });
+
+},1500);
+}
+
+/* =========================================
+   PRINT SELECTED
+========================================= */
+
+function printSelectedPhotos(){
+
+    const selected =
+    document.querySelectorAll('.photo-check:checked');
+
+    if(selected.length < 3){
+
+        alert("Pilih minimal 3 foto 💗");
+        return;
+    }
+
+    const wrapper =
+    document.querySelector('.print-wrapper');
+
+    wrapper.innerHTML = '';
+
+    /* =====================================
+       1 PAGE = MAX 6 PHOTO
+    ===================================== */
+
+    for(let i=0;i<selected.length;i+=6){
+
+        const batch =
+        Array.from(selected).slice(i,i+6);
+
+        const page =
+        document.createElement('div');
+
+        page.className = 'print-page';
+
+        /* =================================
+           3 PHOTO = 1 STRIP
+           6 PHOTO = 2 STRIP
+        ================================= */
+
+        if(batch.length <=3){
+
+            page.classList.add('single-strip');
+
+            page.appendChild(
+                createStrip(batch)
+            );
+
+        }else{
+
+            page.classList.add('double-strip');
+
+            const first =
+            batch.slice(0,3);
+
+            const second =
+            batch.slice(3,6);
+
+            page.appendChild(
+                createStrip(first)
+            );
+
+            page.appendChild(
+                createStrip(second)
+            );
+        }
+
+        wrapper.appendChild(page);
+    }
+
+    waitImages(wrapper).then(()=>{
+
+        setTimeout(()=>{
+
+            window.print();
+
+        },500);
+
+    });
+}
+
+/* =========================================
+   CREATE STRIP
+========================================= */
+
+function createStrip(photos){
+
+    const strip =
+    document.createElement('div');
+
+    strip.className = 'print-strip';
+
+    /* timestamp */
+
+    const now =
+    new Date();
+
+    const time =
+    now.toLocaleString();
+
+    strip.innerHTML = `
+
+        <div class="print-header">
+
+            <div class="print-logo">
+                💗 Sasa Photobox
+            </div>
+
+            <div class="print-time">
+                ${time}
+            </div>
+
+        </div>
+    `;
+
+    /* photos */
+
+    photos.forEach(check=>{
+
+        const originalImg =
+        check.parentElement.querySelector('img');
+
+        const photo =
+        document.createElement('div');
+
+        photo.className='print-photo';
+
+        photo.innerHTML=`
+
+            <span class="deco love">💗</span>
+            <span class="deco star">✨</span>
+            <span class="deco flower">🌸</span>
+            <span class="deco ribbon">🎀</span>
+
+            <img src="${originalImg.src}">
+        `;
+
+        strip.appendChild(photo);
+    });
+
+    /* caption */
+
+    const caption =
+    document.createElement('div');
+
+    caption.className='print-caption';
+
+    caption.innerHTML='Forever Memories ✨';
+
+    strip.appendChild(caption);
+
+    /* footer */
+
+    const footer =
+    document.createElement('div');
+
+    footer.className='print-footer';
+
+    footer.innerHTML=`
+
+        <div class="barcode">
+            ||| || |||| |||
+        </div>
+
+        <div class="qr">
+            ⌁⌁⌁
+        </div>
+
+    `;
+
+    strip.appendChild(footer);
+
+    return strip;
+}
+
+/* =========================================
+   WAIT IMAGE MOBILE FIX
+========================================= */
+
+function waitImages(wrapper){
+
+    const images =
+    wrapper.querySelectorAll('img');
+
+    return Promise.all(
+
+        Array.from(images).map(img=>{
+
+            return new Promise(resolve=>{
+
+                img.loading = "eager";
+
+                if(img.complete){
+
+                    resolve();
+
+                }else{
+
+                    img.onload = resolve;
+                    img.onerror = resolve;
+                }
+            });
+        })
+    );
+}
+
+</script>
 
 </body>
 </html>

@@ -1,0 +1,166 @@
+/* =========================
+   CSS TAMBAHAN SAJA
+   (JANGAN HAPUS CSS LAMA)
+========================= */
+
+/* tombol */
+.print-controls{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin:20px 0 40px;
+    flex-wrap:wrap;
+}
+
+.print-btn{
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.print-btn.pink{
+    background:#ff5c93;
+}
+
+/* select checkbox */
+.photo-select{
+    position:absolute;
+    top:10px;
+    right:10px;
+
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:5;
+
+    font-size:13px;
+    font-weight:bold;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.photo-check{
+    display:none;
+}
+
+/* area print hidden */
+#print-area{
+    display:none;
+}
+
+/* =========================
+   PRINT PHOTOBOX FIX
+========================= */
+
+@media print{
+
+    body{
+        background:white !important;
+    }
+
+    .gallery-container,
+    .gallery-title,
+    .btn-back,
+    .print-controls,
+    .lights,
+    .bunting{
+        display:none !important;
+    }
+
+    #print-area{
+        display:block;
+    }
+
+    /* ukuran kertas 4R */
+    @page{
+        size:10cm 15cm;
+        margin:0;
+    }
+
+    /* 1 halaman */
+    .print-strip{
+
+        width:10cm;
+        height:15cm;
+
+        padding:.35cm;
+
+        display:flex;
+        flex-direction:column;
+
+        justify-content:space-between;
+
+        background:white;
+
+        overflow:hidden;
+
+        page-break-after:always;
+        break-after:page;
+
+        break-inside:avoid;
+    }
+
+    /* tiap foto */
+    .print-photo{
+
+        flex:1;
+
+        display:flex;
+        flex-direction:column;
+
+        overflow:hidden;
+
+        border-radius:18px;
+
+        background:white;
+
+        margin-bottom:.18cm;
+
+        border:3px solid white;
+    }
+
+    .print-photo:last-child{
+        margin-bottom:0;
+    }
+
+    /* gambar */
+    .print-photo img{
+
+        width:100%;
+        height:100%;
+
+        object-fit:cover;
+
+        flex:1;
+    }
+
+    /* caption */
+    .print-caption{
+
+        text-align:center;
+
+        padding:6px 4px;
+
+        font-size:11px;
+
+        background:white;
+
+        color:#444;
+
+        font-family:Poppins,sans-serif;
+    }
+
+}
