@@ -5,7 +5,7 @@ aku menulis ini bukan untuk memaksamu kembali dan mengubah keputusan sasa, tapi 
 
 terima kasih ya… aku benar-benar menghargai semua yang pernah kita lewati. aku juga bisa memahami kenapa sasa memilih jalan yang sekarang, dan aku menghormati itu sepenuhnya.
 
-kalo sasa mau memberi aku kesempatan, sal mau minta maaf ke sasa lebih baik
+kalo sasa mau memberi aku kesempatan, sal mau minta maaf ke sasa lebih baik, tentunya dengan menutup semuanya dengan baik dan tenang
 
 maaf, sa. maaf, kalo selama ini ada sikap serta caraku yang tanpa sadar menyakiti sasa, membuat sasa kecewa, nikin sasa ngga nyaman, buat sasa overthinking dan itu membuat perasaan sasa tderasa menjadi beban. aku menyadari banyak hal, dan itu jadi pelajaran penting buatku ke depannya
 
