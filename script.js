@@ -40,7 +40,9 @@ happy graduation and congrats, sasa
 aku tau, pasti hasil sidang sasa berjalan lancar dan memuaskan
 i'm so proud of u, sa 
 selalu bangga dengan sasa
-jaga kesehatanmu selalu ya. have a peaceful life, mi amor.
+jaga kesehatanmu selalu ya,
+i love u, elisa sulistiawati
+have a peaceful life, mi amor.
 `
 
 let i = 0
