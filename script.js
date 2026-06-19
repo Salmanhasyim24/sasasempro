@@ -33,16 +33,16 @@ bahagia dan senang mengenalmu, senang sekali
 
 terima kasih sasa, sasa udah mengekspresikan perasaan sasa kemaren
 thank u for a wonderful woman i've ever seen
-i will be ur bloom and see u at the aisle, sasa
-until our next eclipse :)
 
 happy graduation and congrats, sasa
 aku tau, pasti hasil sidang sasa berjalan lancar dan memuaskan
 i'm so proud of u, sa 
 selalu bangga dengan sasa
 jaga kesehatanmu selalu ya,
-i love u, elisa sulistiawati
-have a peaceful life, mi amor.
+i may not always be beside you, but i will always wish good things for u, elisa sulistiawati
+i will be ur bloom and see u at the aisle, sasa
+until our next eclipse, my ocean :)
+have a peaceful life, mi amor :)
 `
 
 let i = 0
