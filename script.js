@@ -21,7 +21,7 @@ bukankah sasa sudah sangat hebat? jangan lupa untuk bilang terimakasih sama diri
 
 aku harap sasa selalu baik baik saja, menemukan ketenangan, kebahagiaan, merasa aman dan nyaman menjadi diri sasa sendiri
 
-untuk sekarang dan kedepannya tidak ada yang perlu sasa khawatirkan. aku akan baik baik saja, dan aku pastikan sasa juga seperti itu (tentunya tidak bertemu lagi dengan seseorang yang tidak dewasa seperti sall)
+untuk sekarang dan kedepannya tidak ada yang perlu sasa khawatirkan. aku akan baik baik saja, dan aku pastikan sasa juga seperti itu
 sasa akan melanjutkan perjalanan cerita kedepannya, dan aku pun seperti itu
 
 so next time, when u're tired, when something is bothering ur mind, or when ur heart feels heavy please tell sall, friends, or someone who will be with sasa in the future, okaii? just because u're afraid of burdening me yaa. because honestly, the thing that worries me the most is ur silence, saa
