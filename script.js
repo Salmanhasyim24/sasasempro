@@ -10,7 +10,8 @@ kalo sasa mau memberi aku kesempatan, sal mau minta maaf ke sasa lebih baik, ten
 maaf, sa. maaf, kalo selama ini ada sikap serta caraku yang tanpa sadar menyakiti sasa, membuat sasa kecewa, nikin sasa ngga nyaman (khususnya, ajak sasa begadang terus), buat sasa overthinking dan itu membuat perasaan sasa terasa menjadi beban. aku menyadari banyak hal, dan itu jadi pelajaran penting buatku ke depannya
 
 maaf juga karena setelah lebaran kemarin aku sempat menghilang tanpa penjelasan
-beberapa bulan terakhir dari bulan ferbuari sampai bulan ini, bulan mei tepatnya ada banyak hal yang terjadi di keluargaku (bibi, nenek, dan omku) yang ada di soreang dan orang-orang sekitarku (kedua teman) dipanggil Tuhan duluan, jadi aku sedang berusaha menenangkan diriku sendiri sampai saat ini, aku lagi mencoba menjalani semuanya pelan pelan
+beberapa bulan terakhir dari bulan ferbuari sampai bulan ini, bulan mei tepatnya
+ada banyak hal yang terjadi di keluargaku (bibi, nenek, dan omku) di soreang dan orang-orang sekitarku (kedua teman) dipanggil Tuhan duluan, jadi aku sedang berusaha menenangkan diriku sendiri sampai saat ini, aku lagi mencoba menjalani semuanya pelan pelan
 
 tentang semua kenangan kita, aku menyimpannya sebagai sesuatu yang baik. terima kasih untuk semua waktu, cerita, dan hal hal besar yang pernah kita lewatin bersama
 mungkin terlihat sederhana, tapi semuanya berarti buat aku
